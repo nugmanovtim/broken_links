@@ -6,7 +6,8 @@ class Resource
   end
 
   def find_broken_links
-    cast.find_broken_links
+    puts @url
+    cast.find_broken_links&.flatten&.compact
   end
 
   private
@@ -28,7 +29,7 @@ class Resource
   end
 
   def i_am_broken
-    puts @url
+    puts "Broken: #{@url}"
     [self]
   end
 

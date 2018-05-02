@@ -1,6 +1,6 @@
 class HttpRequest
-  def initialize(web_page)
-    @web_page = web_page
+  def initialize(url)
+    @url = url
   end
 
   # return HttpResponse
