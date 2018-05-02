@@ -6,7 +6,7 @@ class HttpRequest
   # return HttpResponse
   def go
     HttpResponse.new(
-      RestClient::Request.execute(method: :get, url: @url)
+      RestClient::Request.execute(method: :get, url: @url.to_s)
     )
   end
 end

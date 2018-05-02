@@ -1,7 +1,7 @@
 # Is a web resource of any kind
 class Resource
   def initialize(url, body = nil)
-    @url = url
+    @url = URI(url)
     @body = body
   end
 
