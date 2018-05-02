@@ -4,5 +4,9 @@ class HttpRequest
   end
 
   # return HttpResponse
-  def go; end
+  def go
+    HttpResponse.new(
+      RestClient::Request.execute(method: :get, url: @url)
+    )
+  end
 end
