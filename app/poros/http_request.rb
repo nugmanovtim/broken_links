@@ -8,5 +8,11 @@ class HttpRequest
     HttpResponse.new(
       RestClient::Request.execute(method: :get, url: @url.to_s)
     )
+  rescue RestClient::NotFound, RestClient::Exceptions::OpenTimeout,
+         RestClient::InternalServerError, RestClient::SSLCertificateNotVerified,
+         Errno::ECONNRESET, SocketError, RestClient::ServiceUnavailable
+    HttpResponse::ERROR
+  rescue URI::InvalidURIError
+    HttpResponse::ERROR
   end
 end
