@@ -3,5 +3,7 @@ class BrokenLinksController < ApplicationController
   end
 
   def go
+    @url = params[:url]
+    @broken_links = BrokenLinksInspector.new(@url).go
   end
 end
