@@ -8,11 +8,11 @@ class Resource
   end
 
   def find_broken_links
+    return [] unless @inspector.correct_host?(@url.host)
     return [] unless first_time?
     download
     return i_am_broken if broken?
     if html?
-      return i_am_not_broken unless @inspector.correct_host?(@url.host)
       HtmlPage.new(@inspector, @url, body).find_broken_links
     else
       i_am_not_broken
