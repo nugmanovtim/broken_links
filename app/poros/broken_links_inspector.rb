@@ -1,6 +1,6 @@
 class BrokenLinksInspector
   def initialize(starting_url)
-    @starting_url = URI(starting_url)
+    @starting_url = Addressable::URI.parse(starting_url)
     @visited_urls = Set.new
   end
 

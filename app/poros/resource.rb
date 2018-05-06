@@ -3,7 +3,7 @@ class Resource
   attr_reader :url
   def initialize(inspector, url, body = nil)
     @inspector = inspector
-    @url = URI(url)
+    @url = Addressable::URI.parse(url)
     @body = body
   end
 
