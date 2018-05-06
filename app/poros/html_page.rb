@@ -17,7 +17,8 @@ class HtmlPage < Resource
 
   def links
     @doc.css('*').map { |e| e['href'] || e['src'] }.compact
-        .select { |e| %w[http https].include? e.scheme }
         .map { |e| Addressable::URI.parse(e.strip) }
+        .select { |e| ['http', 'https', nil].include? e.scheme }
+        .map { |e| (e.fragment = '') && e }
   end
 end

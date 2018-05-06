@@ -10,7 +10,8 @@ class HttpRequest
     )
   rescue RestClient::NotFound, RestClient::Exceptions::OpenTimeout,
          RestClient::InternalServerError, RestClient::SSLCertificateNotVerified,
-         Errno::ECONNRESET, SocketError, RestClient::ServiceUnavailable
+         Errno::ECONNRESET, SocketError, RestClient::ServiceUnavailable,
+         RestClient::ServerBrokeConnection
     HttpResponse::ERROR
   rescue URI::InvalidURIError
     HttpResponse::ERROR
