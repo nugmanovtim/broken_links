@@ -1,2 +1,11 @@
-<h1>BrokenLinks#go</h1>
-<p>Find me in app/views/broken_links/go.html.erb</p>
+<h1>Broken Links.</h1>
+<p> Your resource: <%= @url %> </p>
+<% if @broken_links.empty? %>
+  <p> No broken links found. </p>
+<% else %>
+  <ul>
+    <% @broken_links.each do |link| %>
+      <li> <%= link.url.to_s %> </li>
+    <% end %>
+  </ul>
+<% end %>

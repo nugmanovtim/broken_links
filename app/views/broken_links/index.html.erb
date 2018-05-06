@@ -1,2 +1,6 @@
-<h1>BrokenLinks#index</h1>
-<p>Find me in app/views/broken_links/index.html.erb</p>
+<h1>Broken Links.</h1>
+<%= form_tag('broken_links/go', method: :post) do %>
+  <%= label_tag(:url, 'Enter web resource you would like to scan for broken links:') %>
+  <%= text_field_tag(:url) %>
+  <%= submit_tag('Go') %>
+<% end %>
